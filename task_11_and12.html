@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_11</title>
+</head>
+<body>
+    <div>
+        <h1>User Details</h1>
+    </div>
+    <ul id="obj_details"> </ul>
+    <form onsubmit="saveToLocalStorage(event)">
+        Name:
+        <br>
+        <input type="text" name="name" placeholder="Enter Your Name" required/>
+        <br>
+        Email:
+        <br>
+        <input type="email" name="email" placeholder="Enter Your email" required/>
+        <br>
+        Age:
+        <br>
+        <input type="text" name="age" placeholder="Enter Your age" required/>      
+        <br><br>
+        <button>submit</button>
+      </form>
+      <ul id="userDetails"></ul>
+    <script>
+        function saveToLocalStorage(event){
+          event.preventDefault();
+          const name = event.target.name.value;
+          const email = event.target.email.value;
+          const age = event.target.age.value;
+
+        let my_object = {
+            name,
+            email,
+            age
+        }
+       showOnScreen(my_object);
+       }
+
+       function showOnScreen(user){
+        var parentNode = document.getElementById('obj_details');
+        var child = `<li>${user.name}-${user.email}-${user.age}</li>`
+        parentNode.innerHTML = parentNode.innerHTML + child;
+       }
+       
+    </script>
+</body>
+</html>
